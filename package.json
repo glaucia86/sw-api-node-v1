@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/glaucia86/sw-api-node-v1/issues"
   },
-  "homepage": "https://github.com/glaucia86/sw-api-node-v1#readme"
+  "homepage": "https://github.com/glaucia86/sw-api-node-v1#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-node6": "^11.0.0"
+  }
 }

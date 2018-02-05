@@ -11,6 +11,8 @@ Challenge da empresa Admatic com o objetivo final de criar uma api que realize a
 - Node.Js;
 - Express.Js
 - MongoDb & MLab;
+- ES6;
+- Babel (Transpiler);
 - Code Metrics; (análise de desenvolvimento do codigo)
 - Visual Studio Code;
 - Json data (para retornar os dados);
