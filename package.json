@@ -1,0 +1,19 @@
+{
+  "name": "sw-api-node-v1",
+  "version": "1.0.0",
+  "description": "Repositório responsável pelo desafio Back-End do Admatic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/glaucia86/sw-api-node-v1.git"
+  },
+  "author": "Glaucia Lemos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/glaucia86/sw-api-node-v1/issues"
+  },
+  "homepage": "https://github.com/glaucia86/sw-api-node-v1#readme"
+}
