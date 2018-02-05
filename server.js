@@ -18,7 +18,7 @@ const router = express.Router();
 
 //Middleware para usar em todos os requests enviados para a nossa API- Mensagem Padrão:
 router.use(function(req, res, next) {
-    console.log("Algo está acontecendo aqui....");
+    console.log("Essa mensagem deverá aparecer antes das rotas....");
     next(); //aqui é para sinalizar de que prosseguiremos para a próxima rota. E que não irá parar por aqui!!!
 });
 

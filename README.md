@@ -17,7 +17,7 @@ Challenge da empresa Admatic com o objetivo final de criar uma api que realize a
 - Visual Studio Code;
 - Json data (para retornar os dados);
 - PostMan (testar a API criada);
-- TDD (Mocha & Chai);
+- TDD (Conceitos de Test Driven Development);
 
 ## Testando a Aplicação no Postman:
 Caso queira testar as API's criadas no projeto, primeiro baixe o [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop).
@@ -88,7 +88,7 @@ obs.: api de exemplo através do site: https://jsonplaceholder.typicode.com
 
 ### Executando a Aplicação
 
-Bom, agora na mesma tela do cmd, basta iniciar o server para o projeto ser executado localmente.
+Bom, agora na mesma tela do cmd, basta iniciar o server para o projeto ser executado localmente. (via nodemon)
 
 ```
 npm start
@@ -103,7 +103,13 @@ mongod
 Caso o MongoDb esteja devidamente instalado em sua máquina, ele iniciará o serviço mostrando que a port 27017 foi iniciada.
 
 
-Agora, abre a página da aplicação em `http://localhost:8000/api`. E pronto a aplicação será executada de maneira local na sua máquina.        
+Agora, abre a página da aplicação em `http://localhost:8000/api`. E pronto a aplicação será executada de maneira local na sua máquina.  
+
+Se tudo der certo, deverá apresentar a seguinte mensagem:
+
+```
+Bem Vindo(a) a API da B2WAds
+```      
 
 p.s.: no projeto, disponibilizei 2 maneiras de realizar a conexão de dados com o MongoDb através do Mongoose:
 
