@@ -1,8 +1,7 @@
 # Star Wars API Node.JS by Glaucia LEmos
 
-
 <p align="center">
-  <img src="https://i.imgur.com/hHAwYS2.gif"/>  
+  <img src="https://i.imgur.com/YUNJs1N.gif"/>  
 </p>
 
 Challenge da empresa Admatic com o objetivo final de criar uma api que realize as 4 operações do HTTP: GET, DELETE, PUT &amp; POST. Utilizando das boas práticas de programação e realizando o TDD.
@@ -141,8 +140,6 @@ Quaisquer dúvidas ao testar as api's via postman é só falar. Já disponibiliz
 ]
 
 ```
-<p align="center">
-  <img src="https://i.imgur.com/YUNJs1N.gif"/>  
-</p>
+
 
 
