@@ -19,5 +19,9 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-node6": "^11.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
   }
 }
