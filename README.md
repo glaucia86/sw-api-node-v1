@@ -91,7 +91,7 @@ obs.: api de exemplo através do site: https://jsonplaceholder.typicode.com
 Bom, agora na mesma tela do cmd, basta iniciar o server para o projeto ser executado localmente.
 
 ```
-node server.js
+npm start
 ```
 
 Depois, você precisará abrir um outro terminal na sua máquina e iniciar o MongoDb. Basta digitar na tela do cmd o seguinte comando:
