@@ -78,11 +78,12 @@ obs.: api de exemplo através do site: https://jsonplaceholder.typicode.com
 
  ROTA                      |     HTTP(Verbo)   |      Descrição                |      Links (via PostMan)                 
 -------------------------  | ----------------- | ---------------------         | ---------------------------------------- 
-/posts                     |       GET         | Selecionar Todos os Posts     | GET:    http://localhost:8000/posts      
-/post                      |       POST        | Criar um Post                 | POST:   http://localhost:8000/post
-/post/:post_id             |       GET         | Selecionar Por Id             | GET:    http://localhost:8000/post/:id
-/post/:post_id/            |       PUT         | Atualizar Por Id              | PUT:    http://localhost:8000/post/:id   
-/post/:post_id/            |       DELETE      | Excluir Por Id                | DELETE: http://localhost:8000/post/:id
+/planets                    |       GET         | Selecionar Todos os Planetas     | GET:    http://localhost:8000/api/planets     
+/planets                     |       POST        | Criar um Post                 | POST:   http://localhost:8000/api/planets
+/planets/:planet_id             |       GET         | Selecionar Por Id             | GET:    http://localhost:8000/planets/:id
+/planets/:planet_name             |       GET         | Selecionar Por Nome            | GET:    http://localhost:8000/planets/:name
+/planets/:planet_id/            |       PUT         | Atualizar Por Id              | PUT:    http://localhost:8000/planets/:id   
+/planets/:planet_id/            |       DELETE      | Excluir Por Id                | DELETE: http://localhost:8000/planets/:id
 
 ### Executando a Aplicação
 
