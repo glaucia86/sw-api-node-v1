@@ -8,13 +8,11 @@
  */
 
 import express from 'express';
+import PlanetsController from '../controllers/planets';
 
 const router = express.Router();
+const planetsController = new PlanetsController();
 
-router.get('/', (req, res) => res.send([{
-  nome: 'Tatooine',
-  clima: 'árido',
-  terreno: 'deserto'
-}]));
+router.get('/', (req, res) => planetsController.get(req, res));
 
 export default router;
