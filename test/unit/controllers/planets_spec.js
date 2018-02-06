@@ -9,6 +9,8 @@
 
 import PlanetsController from '../../../src/controllers/planets';
 import sinon from 'sinon';
+import Planet from '../../../src/models/planet';
+import planet from '../../../src/models/planet';
 
 /**
  * Teste default
@@ -24,17 +26,21 @@ describe('Controllers: Planets', ()=> {
      * Teste responsável por retornar uma lista de Planetas:
      */
     describe('get() planets', () => {
-        it('Deve retornar uma listas de Planetas', () => {
+        it('Deve chamar a função send com uma lista de Planetas', () => {
             const request = {};
             const response = {
                 send: sinon.spy()
             };
 
-            const planetsController = new PlanetsController();
-            planetsController.get(request, response);
+            Planet.find = sinon.stub();
 
-            expect(response.send.called).to.be.true;
-            expect(response.send.calledWith(defaultPlanet)).to.be.true;
+            Planet.find.withArgs({}).resolves(defaultPlanet);
+
+            const planetsController = new PlanetsController(Planet);
+            return planetsController.get(request, response)
+                .then(() => {
+                    sinon.assert.calledWith(response.send, defaultPlanet);
+            });
         });
     });
 }); 
