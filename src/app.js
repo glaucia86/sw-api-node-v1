@@ -24,5 +24,5 @@ const configureExpress = () => {
     return app;
 };
 
-//Aqui estou inicializando o BD: (via Promise)
+//Aqui estou inicializando o BD: (via Promise):
 export default () => database.connect().then(configureExpress);

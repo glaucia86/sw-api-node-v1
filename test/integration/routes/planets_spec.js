@@ -8,12 +8,27 @@
  */
 
 describe('Routes: Planets', () => {
+    let request;
+
+    before(() => {
+      return setupApp()
+        .then(app => {
+          request = supertest(app);
+        })
+    });
+
+    /**
+     * Método responsável por retornar um planeta default (teste):
+     */
     const defaultPlanet = {
       nome: 'Tatooine',
       clima: 'árido',
       terreno: 'deserto'
     };
   
+    /**
+     * Teste responsável por retornar uma lista de Planetas (via - GET):
+     */
     describe('GET /planets', () => {
       it('Deve retornar uma listas de Planetas', done => {
  

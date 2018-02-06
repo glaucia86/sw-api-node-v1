@@ -7,12 +7,15 @@
  *
  */
 
-import app from './src/app';
+import setupApp from './src/app';
 const port = 8000;
 
-app.listen(port, () => {
-    console.log(`Aplicação executando na porta ${port}`);
-});
+setupApp()
+    .then(app =>app.listen(port, () => console.log(`Aplicação executando na porta ${port}`)))
+    .catch(error => {
+        console.error(error);
+        process.exit(1);
+    });
 
 
 
