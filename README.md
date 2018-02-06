@@ -19,6 +19,7 @@ Challenge da empresa Admatic com o objetivo final de criar uma api que realize a
 - PostMan (testar a API criada);
 - TDD (Testes de Unidade e Integração);
 - Mocha, Chai, Sinon & Supertest; 
+- BDD (Behaviour Driven Development);
 
 ## Testando a Aplicação no Postman:
 Caso queira testar as API's criadas no projeto, primeiro baixe o [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop).

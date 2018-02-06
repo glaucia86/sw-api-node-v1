@@ -13,6 +13,7 @@ import Planet from '../models/planet';
 
 const router = express.Router();
 const planetsController = new PlanetsController(Planet);
-router.get("/", (req, res) => planetsController.get(req, res));
+
+router.get("/:id", (req, res) => planetsController.getPlanetsById(req, res));
 
 export default router;

@@ -18,6 +18,8 @@ describe("Routes: Planets", () => {
     });
   });
 
+  const defaultId = "56cb91bdc3464f14678934ca";
+
   const defaultPlanet = {
     nome: 'Tatooine',
     clima: 'árido',
@@ -26,7 +28,7 @@ describe("Routes: Planets", () => {
 
   const expectedPlanet = {
     __v: 0,
-    _id: "56cb91bdc3464f14678934ca",
+    _id: defaultId,
     nome: 'Tatooine',
     clima: 'árido',
     terreno: 'deserto'
@@ -45,6 +47,19 @@ describe("Routes: Planets", () => {
       request.get("/planets").end((err, res) => {
         expect(res.body).to.eql([expectedPlanet]);
         done(err);
+      });
+    });
+
+    context('Quando um encontrar um determinado Id', done => {
+      it('Deve retornar 200 com um planeta', done => {
+         
+        request
+          .get(`/planets/${defaultId}`)
+          .end((err, res) => {
+            expect(res.statusCode).to.eql(200);
+            expect(res.body).to.eql([expectedPlanet]);
+            done(err);
+          });
       });
     });
   });

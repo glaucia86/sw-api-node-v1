@@ -19,34 +19,39 @@ describe('Controllers: Planets', () => {
       terreno:'deserto'
   }];
 
-  describe('get() planets', () => {
-    it("Deve chamar a função send com uma lista de Planetas", () => {
-      const request = {};
-      const response = { send: sinon.spy() };
-      Planet.find = sinon.stub();
+   const defaultRequest = { params: {} };
 
-      Planet.find.withArgs({}).resolves(defaultPlanet);
+   describe("get() planets", () => {
+     it("Deve chamar a função send com uma lista de Planetas", () => {
+       const response = { send: sinon.spy() };
+       Planet.find = sinon.stub();
 
-      const planetsController = new PlanetsController(Planet);
+       Planet.find.withArgs({}).resolves(defaultPlanet);
 
-      return planetsController.get(request, response).then(() => {
-        sinon.assert.calledWith(response.send, defaultPlanet);
-      });
-    });
+       const planetsController = new PlanetsController(Planet);
 
-    it("Deve retornar 400 quando vier a ocorrer error", () => {
-      const request = {};
-      const response = { send: sinon.spy(), status: sinon.stub() };
+       return planetsController
+         .get(defaultRequest, response)
+         .then(() => {
+           sinon.assert.calledWith(response.send, defaultPlanet);
+         });
+     });
 
-      response.status.withArgs(400).returns(response);
-      Planet.find = sinon.stub();
-      Planet.find.withArgs({}).rejects({ message: "Error" });
+     it("Deve retornar 400 quando vier a ocorrer error", () => {
+       const request = {};
+       const response = { send: sinon.spy(), status: sinon.stub() };
 
-      const planetsController = new PlanetsController(Planet);
+       response.status.withArgs(400).returns(response);
+       Planet.find = sinon.stub();
+       Planet.find.withArgs({}).rejects({ message: "Error" });
 
-      return planetsController.get(request, response).then(() => {
-        sinon.assert.calledWith(response.send, "Error");
-      });
-    });
-  });
+       const planetsController = new PlanetsController(Planet);
+
+       return planetsController.get(request, response).then(() => {
+         sinon.assert.calledWith(response.send, "Error");
+       });
+     });
+   });
+
+
 });
