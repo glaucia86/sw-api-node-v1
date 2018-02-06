@@ -7,26 +7,19 @@
  *
  */
 
-import express from 'express';
-import bodyParser from 'body-parser';
+import app from './src/app';
+const port = 8000;
 
-const app = express();
-app.use(bodyParser.json());
-
-//Criando uma instância das Rotas via Express:
-const router = express.Router();
+app.listen(port, () => {
+    console.log("Aplicação executando na porta 8000");
+});
 
 //Middleware para usar em todos os requests enviados para a nossa API- Mensagem Padrão:
-router.use(function(req, res, next) {
+app.use(function(req, res, next) {
     console.log("Essa mensagem deverá aparecer antes das rotas....");
     next(); //aqui é para sinalizar de que prosseguiremos para a próxima rota. E que não irá parar por aqui!!!
 });
 
-router.get('/', (req, res) => res.json({message: 'Bem Vindo(a) a API da B2WAds'}));
 
-//Definindo um padrão das rotas prefixadas: '/api':
-app.use('/api', router);
 
-app.listen(8000, () => {
-    console.log("Aplicação executando na porta 8000");
-});
+
