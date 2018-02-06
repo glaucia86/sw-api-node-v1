@@ -9,9 +9,9 @@
 
 describe('Routes: Planets', () => {
     const defaultPlanet = {
-      name: 'Tatooine',
-      climate: 'árido',
-      terrain: 'deserto'
+      nome: 'Tatooine',
+      clima: 'árido',
+      terreno: 'deserto'
     };
   
     describe('GET /planets', () => {

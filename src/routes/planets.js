@@ -12,9 +12,9 @@ import express from 'express';
 const router = express.Router();
 
 router.get('/', (req, res) => res.send([{
-  name: 'Tatooine',
-   climate: 'árido',
-   terrain: 'deserto'
+  nome: 'Tatooine',
+  clima: 'árido',
+  terreno: 'deserto'
 }]));
 
 export default router;
