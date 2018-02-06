@@ -1,5 +1,3 @@
-import { request } from "http";
-
 /**
  *
  * Arquivo: test/integration/routes/planets_spec.js
@@ -9,23 +7,22 @@ import { request } from "http";
  *
  */
 
-describe('Rotas: Planets', () => {
+describe('Routes: Planets', () => {
     const defaultPlanet = {
-        name: 'Tatooine',
-        climate: 'árido',
-        terrain: 'deserto'
+      name: 'Tatooine',
+      climate: 'árido',
+      terrain: 'deserto'
     };
-
-    //Aqui estou usando o 'supertest' que nos permite fazer uma requisição http para uma determinada
-    //rota e verifica o retorno de resposta:
+  
     describe('GET /planets', () => {
-        it('Deve retornar uma lista de Planetas', done => {
-            request
-            .get('/planets')
-            .end((err, res) => {
-                expect(res.body[0]).to.eql(defaultPlanet);
-                done(err);
-            });
-        });
-    });
-});
+      it('Deve retornar uma listas de Planetas', done => {
+ 
+       request
+       .get('/planets')
+       .end((err, res) => {
+         expect(res.body[0]).to.eql(defaultPlanet);
+         done(err);
+       });
+     });
+   });
+ });

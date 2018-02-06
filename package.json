@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./server.js --exec babel-node --presets babel-preset-env",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:integration": "cross-env NODE_ENV=test mocha --opts test/integration/mocha.opts test/integration/**/*_spec.js"
   },
   "repository": {
     "type": "git",
@@ -18,13 +19,13 @@
   },
   "homepage": "https://github.com/glaucia86/sw-api-node-v1#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
+    "babel-cli": "^6.18.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-node6": "^11.0.0",
-    "chai": "^4.1.2",
-    "mocha": "^5.0.0",
-    "nodemon": "^1.14.12",
-    "supertest": "^3.0.0"
+    "chai": "^3.5.0",
+    "cross-env": "^5.1.3",
+    "mocha": "^3.2.0",
+    "supertest": "^2.0.1"
   },
   "dependencies": {
     "body-parser": "^1.18.2",

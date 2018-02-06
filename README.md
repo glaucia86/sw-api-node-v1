@@ -1,4 +1,4 @@
-# Star Wars API Node.JS by Glaucia LEmos
+# Star Wars API Node.JS by Glaucia Lemos
 
 <p align="center">
   <img src="https://i.imgur.com/YUNJs1N.gif"/>  
@@ -40,10 +40,6 @@ Antes de instalar as dependências no projeto, você precisa já ter instalado n
 * **Node.Js**: Caso não tenha, basta realizar o download [Aqui](https://nodejs.org/en/)
 * **MongoDb**: Caso também não tenha, basta realizar o download [Aqui](https://www.mongodb.com/download-center#community)
 
-p.s.: o MongoDb caso você decida conectar a sua base de dados de maneira local. Caso não, basta usar 
-a base de dados do MongoDb em Cloud:
-
-* [MLab](https://mlab.com/)
 
 **p.s.: por padrão já estou deixando a conexão de dados do Cloud: MLab, para facilitar todos vocês. Mas, caso queiram testar via MongoDb, bastam baixar e descomentar a connection criada nos arquivos contidos na pasta: 'config'.**
 
@@ -89,20 +85,19 @@ obs.: api de exemplo através do site: https://jsonplaceholder.typicode.com
 
 ### Executando a Aplicação
 
-Bom, agora na mesma tela do cmd, basta iniciar o server para o projeto ser executado localmente. (via nodemon)
-
-```
-npm start
-```
-
-Depois, você precisará abrir um outro terminal na sua máquina e iniciar o MongoDb. Basta digitar na tela do cmd o seguinte comando:
+Primeiro, você precisará abrir um terminal na sua máquina e iniciar o MongoDb. Basta digitar na tela do cmd o seguinte comando:
 
 ```
 mongod
 ```
 
-Caso o MongoDb esteja devidamente instalado em sua máquina, ele iniciará o serviço mostrando que a port 27017 foi iniciada.
+Depois, abre um outro terminal, para iniciar a aplicação. Para isso, basta iniciar o server para o projeto ser executado localmente. (via nodemon)
 
+```
+npm start
+```
+
+Caso o MongoDb esteja devidamente instalado em sua máquina, ele iniciará o serviço mostrando que a port 27017 foi iniciada.
 
 Agora, abre a página da aplicação em `http://localhost:8000/api`. E pronto a aplicação será executada de maneira local na sua máquina.  
 
@@ -112,43 +107,25 @@ Se tudo der certo, deverá apresentar a seguinte mensagem:
 Bem Vindo(a) a API da B2WAds
 ```      
 
-p.s.: no projeto, disponibilizei 2 maneiras de realizar a conexão de dados com o MongoDb através do Mongoose:
-
-* **De maneira local**: utilizando o MongoDb;
-* **De maneira em cloud**: utilizando o MLab;
-
 ## Executando os Testes:
 
 Basta executar o comando: **(dentro da pasta src)**
 
-```
-> npm test
+1) Para Testes de Integração:
 
 ```
-
-Fiquem à vontade em usar ou até mesmo testar ambas as conexões!! :)  
-Quaisquer dúvidas ao testar as api's via postman é só falar. Já disponibilizei dois cadastrados no MLab (para que possam testar o 'Listar')
-
-**sempre no formato: x-wwwform-urlencoded**
+> npm run test:integration
 
 ```
-[
-    {
-        "_id": "1",
-        "name": "Tatooine",
-        "climate": "arid",
-        "terrain": "desert"
-    },
-    "films": [
-		"https://swapi.co/api/films/5/",
-		"https://swapi.co/api/films/4/",
-		"https://swapi.co/api/films/6/",
-		"https://swapi.co/api/films/3/",
-		"https://swapi.co/api/films/1/"
-	]
-]
+
+2) Para Testes de Unidade:
 
 ```
+> npm run test:unit
+
+```
+
+**documentação em desenvolvimento**
 
 
 
