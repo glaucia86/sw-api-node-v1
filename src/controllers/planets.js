@@ -9,6 +9,13 @@
 
 class PlanetsController {
 
+    get(req, res) {
+        return res.send([{
+            nome:'Tatooine',
+            clima: 'árido',
+            terreno: 'deserto'
+        }])
+    }
 }
 
 export default PlanetsController;
