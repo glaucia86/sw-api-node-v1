@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon ./server.js --exec babel-node --presets babel-preset-env",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:integration": "cross-env NODE_ENV=test mocha --opts test/integration/mocha.opts test/integration/**/*_spec.js"
+    "test:integration": "cross-env NODE_ENV=test mocha --opts test/integration/mocha.opts test/integration/**/*_spec.js",
+    "test:unit": "cross-env NODE_ENV=test mocha --opts test/unit/mocha.opts test/unit/**/*_spec.js"
   },
   "repository": {
     "type": "git",
