@@ -42,6 +42,28 @@ describe('Controllers: Planets', ()=> {
                     sinon.assert.calledWith(response.send, defaultPlanet);
             });
         });
+
+        /**
+         * Teste responsável por retornar alguma mensagem caso venha a ocorrer algum erro em conexão com o BD:
+         */
+        it('Deve retornar 400 quando vier a ocorrer error', () => {
+            const request = {};
+            const response = {
+                send: sinon.spy(),
+                status: sinon.stub()
+            };
+
+            response.status.withArgs(400).returns(response);
+            Planet.find = sinon.stub();
+            Planet.find.withArgs({}).rejects({ message: "Error" });
+
+            const planetsController = new PlanetsController(Planet);
+
+            return planetsController.get(request, response)
+                .then(() => {
+                    sinon.assert.calledWith(response.send, 'Error');
+            });
+        });
     });
 }); 
 
