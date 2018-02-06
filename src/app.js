@@ -13,6 +13,12 @@ import bodyParser from 'body-parser';
 const app = express();
 app.use(bodyParser.json());
 
-app.get('/api', (req, res) => res.json({ message: 'Bem Vindo(a) a API da B2WAds' }));
+app.get('/api', (req, res) => res.json({message: 'Bem Vindo(a) a API da B2WAds'}));
+
+app.get('/planets', (req, res) => res.send([{
+   name: 'Tatooine',
+   climate: 'árido',
+   terrain: 'deserto'
+ }]));
 
 export default app;
