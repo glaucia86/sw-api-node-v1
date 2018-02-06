@@ -53,5 +53,25 @@ describe('Controllers: Planets', () => {
      });
    });
 
+   /**
+    * Teste responsável por retornar um determinado planeta:
+    */
+   describe("getPlanetsById()", () => {
+     it("Deve retornar um determinado Planeta por Id", () => {
+       const fakeId = "a-fake-id";
+       const request = { params: { id: fakeId } };
+       const response = { send: sinon.spy() };
+
+       Planet.find = sinon.stub();
+       Planet.find.withArgs({ _id: fakeId }).resolves(defaultPlanet);
+
+       const planetsController = new PlanetsController(Planet);
+
+       return Planet.getPlanetsById(request, response).then(() => {
+         sinon.assert.calledWith(response.send, defaultPlanet);
+       });
+     });
+   });
+
 
 });
