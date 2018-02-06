@@ -9,16 +9,10 @@
 
 import express from 'express';
 import bodyParser from 'body-parser';
+import routes from './routes';
 
 const app = express();
 app.use(bodyParser.json());
-
-app.get('/api', (req, res) => res.json({message: 'Bem Vindo(a) a API da B2WAds'}));
-
-app.get('/planets', (req, res) => res.send([{
-   name: 'Tatooine',
-   climate: 'árido',
-   terrain: 'deserto'
- }]));
+app.use('/', routes);
 
 export default app;
