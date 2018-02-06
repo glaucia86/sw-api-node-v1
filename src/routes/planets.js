@@ -9,9 +9,10 @@
 
 import express from 'express';
 import PlanetsController from '../controllers/planets';
+import Planet from '../models/planet';
 
 const router = express.Router();
-const planetsController = new PlanetsController();
+const planetsController = new PlanetsController(Planet);
 
 router.get('/', (req, res) => planetsController.get(req, res));
 

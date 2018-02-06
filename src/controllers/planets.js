@@ -9,12 +9,14 @@
 
 class PlanetsController {
 
+    constructor(Planet) {
+        this.Planet = Planet;
+    };
+
     get(req, res) {
-        return res.send([{
-            nome:'Tatooine',
-            clima: 'árido',
-            terreno: 'deserto'
-        }])
+        return this.Planet.find({})
+            .then(planets => res.send(planets))
+            .catch(err => res.status(400).send(err.message));
     }
 }
 
