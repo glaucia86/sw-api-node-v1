@@ -10,9 +10,19 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import routes from './routes';
+import database from './config/database';
 
 const app = express();
-app.use(bodyParser.json());
-app.use('/', routes);
 
-export default app;
+/**
+ * Método responsável por retornar uma nova instância da app q está configurada:
+ */
+const configureExpress = () => {
+    app.use(bodyParser.json());
+    app.use("/", routes);
+
+    return app;
+};
+
+//Aqui estou inicializando o BD: (via Promise)
+export default () => database.connect().then(configureExpress);
