@@ -11,7 +11,7 @@ import app from './src/app';
 const port = 8000;
 
 app.listen(port, () => {
-    console.log("Aplicação executando na porta 8000");
+    console.log(`Aplicação executando na porta ${port}`);
 });
 
 //Middleware para usar em todos os requests enviados para a nossa API- Mensagem Padrão:
