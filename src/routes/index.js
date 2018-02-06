@@ -13,6 +13,6 @@ import planetsRoute from './planets';
 const router = express.Router();
 
 router.use('/planets', planetsRoute);
-router.get('/api', (req, res) => res.json({message: 'Bem Vindo(a) a API da B2WAds'}));
+router.get("/api", (req, res) => res.json({message: 'Bem Vindo(a) a API da B2WAds'}));
 
 export default router;

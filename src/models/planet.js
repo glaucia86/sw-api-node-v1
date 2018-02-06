@@ -18,15 +18,12 @@
 
 import mongoose from 'mongoose';
 
-const PlanetSchema = new mongoose.Schema(
-  {
+const PlanetSchema = new mongoose.Schema({
+  
     nome: { type: String, required: true },
     clima: { type: String, required: true },
     terreno: { type: String, required: true }
-  },
-  {
-    versionKey: false
-  });
+});
 
 const Planet = mongoose.model('Planet', PlanetSchema);
 

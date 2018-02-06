@@ -7,37 +7,45 @@
  *
  */
 
-describe('Routes: Planets', () => {
-    let request;
+import Planet from '../../../src/models/planet';
 
-    before(() => {
-      return setupApp()
-        .then(app => {
-          request = supertest(app);
-        })
+describe("Routes: Planets", () => {
+  let request;
+
+  before(() => {
+    return setupApp().then(app => {
+      request = supertest(app);
     });
+  });
 
-    /**
-     * Método responsável por retornar um planeta default (teste):
-     */
-    const defaultPlanet = {
-      nome: 'Tatooine',
-      clima: 'árido',
-      terreno: 'deserto'
-    };
-  
-    /**
-     * Teste responsável por retornar uma lista de Planetas (via - GET):
-     */
-    describe('GET /planets', () => {
-      it('Deve retornar uma listas de Planetas', done => {
- 
-       request
-       .get('/planets')
-       .end((err, res) => {
-         expect(res.body[0]).to.eql(defaultPlanet);
-         done(err);
-       });
-     });
-   });
- });
+  const defaultPlanet = {
+    nome: 'Tatooine',
+    clima: 'árido',
+    terreno: 'deserto'
+  };
+
+  const expectedPlanet = {
+    __v: 0,
+    _id: "56cb91bdc3464f14678934ca",
+    nome: 'Tatooine',
+    clima: 'árido',
+    terreno: 'deserto'
+  };
+
+  beforeEach(() => {
+    const planet = new Planet(defaultPlanet);
+    planet._id = "56cb91bdc3464f14678934ca";
+    return Planet.remove({}).then(() => planet.save());
+  });
+
+  afterEach(() => Planet.remove({}));
+
+  describe("GET /planets", () => {
+    it("Deve retornar uma lista de Planetas", done => {
+      request.get("/planets").end((err, res) => {
+        expect(res.body).to.eql([expectedPlanet]);
+        done(err);
+      });
+    });
+  });
+});

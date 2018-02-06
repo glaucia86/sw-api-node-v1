@@ -11,13 +11,8 @@ import setupApp from './src/app';
 const port = 8000;
 
 setupApp()
-    .then(app =>app.listen(port, () => console.log(`Aplicação executando na porta ${port}`)))
-    .catch(error => {
-        console.error(error);
-        process.exit(1);
-    });
-
-
-
-
-
+ .then(app => app.listen(port, () => console.log(`Aplicação executando na porta ${port}`)))
+ .catch(error => {
+    console.error(error);
+    process.exit(1);
+});
