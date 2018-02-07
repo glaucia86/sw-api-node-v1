@@ -14,9 +14,6 @@ import database from './config/database'
 
 const app = express();
 
-/**
- * Método responsável por retornar uma nova instância da app q está configurada:
- */
 const configureExpress = () => {
   app.use(bodyParser.json());
   app.use('/', routes);

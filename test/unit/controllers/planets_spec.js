@@ -7,22 +7,24 @@
  *
  */
 
-import PlanetsController from "../../../src/controllers/planets";
-import sinon from "sinon";
-import Planet from "../../../src/models/planet";
+import PlanetsController from '../../../src/controllers/planets';
+import sinon from 'sinon';
+import Planet from '../../../src/models/planet';
 
-describe("Controller: Planets", () => {
+describe('Controller: Planets', () => {
   const defaultPlanet = [{
-      __v: 0,
-      _id: "56cb91bdc3464f14678934ca",
-      nome:'Tatooine',
-      clima:'árido',
-      terreno:'deserto'
+    __v: 0,
+    _id: "56cb91bdc3464f14678934ca",
+    nome:'Tatooine',
+    clima:'árido',
+    terreno:'deserto'
   }];
 
-  const defaultRequest = { params: {} };
+  const defaultRequest = {
+    params: {}
+  };
 
-  describe("get() planets", () => {
+  describe('get() planets', () => {
     it("Deve chamar a função send com uma lista de Planetas", () => {
       const response = { send: sinon.spy() };
       Planet.find = sinon.stub();
@@ -50,12 +52,10 @@ describe("Controller: Planets", () => {
         sinon.assert.calledWith(response.send, "Error");
       });
     });
+
   });
 
-  /**
-  * Teste responsável por retornar um determinado planeta:
-  */
-  describe("getPlanetsById()", () => {
+  describe('getById()', () => {
     it("Deve retornar um determinado Planeta por Id", () => {
       const fakeId = "a-fake-id";
       const request = { params: { id: fakeId } };
@@ -66,27 +66,16 @@ describe("Controller: Planets", () => {
 
       const planetsController = new PlanetsController(Planet);
 
-      return planetsController
-        .getPlanetsById(request, response)
-        .then(() => {
-          sinon.assert.calledWith(response.send, defaultPlanet);
-        });
+      return planetsController.getById(request, response).then(() => {
+        sinon.assert.calledWith(response.send, defaultPlanet);
+      });
     });
   });
 
-  /**
-  * Teste responsável por adicionar um novo Planeta:
-  */
-  describe("addNewPlanet() planet", () => {
+  describe('create() planet', () => {
     it("Deve retornar um novo Planeta cadastrado", () => {
-      const requestWithBody = Object.assign({},
-        { body: defaultPlanet[0] },
-        defaultRequest
-      );
-      const response = {
-        send: sinon.spy(),
-        status: sinon.stub()
-      };
+      const requestWithBody = Object.assign({}, { body: defaultPlanet[0] }, defaultRequest);
+      const response = { send: sinon.spy(), status: sinon.stub() };
       class fakePlanet {
         save() {}
       }
@@ -100,7 +89,7 @@ describe("Controller: Planets", () => {
       const planetsController = new PlanetsController(fakePlanet);
 
       return planetsController
-        .addNewPlanet(requestWithBody, response)
+        .create(requestWithBody, response)
         .then(() => {
           sinon.assert.calledWith(response.send);
         });
@@ -123,7 +112,7 @@ describe("Controller: Planets", () => {
         const planetsController = new PlanetsController(fakePlanet);
 
         return planetsController
-          .addNewPlanet(defaultRequest, response)
+          .create(defaultRequest, response)
           .then(() => {
             sinon.assert.calledWith(response.status, 422);
           });
@@ -131,12 +120,9 @@ describe("Controller: Planets", () => {
     });
   });
 
-  /**
-  * Teste responsável por atualizar um Planeta:
-  */
-  describe("updatePlanet() planet", () => {
-    it(" Deve retornar status 200 quando um Planeta for atualizado", () => {
-      const fakeId = "a-fake-id";
+  describe('update() planet', () => {
+    it('Deve retornar status 200 quando um Planeta for atualizado', () => {
+      const fakeId = 'a-fake-id';
       const updatedPlanet = {
         _id: fakeId,
         nome: "Planeta Atualizado",
@@ -152,19 +138,17 @@ describe("Controller: Planets", () => {
       const response = {
         sendStatus: sinon.spy()
       };
+
       class fakePlanet {
         static findOneAndUpdate() {}
       }
 
-      const findOneAndUpdateStub = sinon.stub(fakePlanet, "findOneAndUpdate");
-      findOneAndUpdateStub
-        .withArgs({ _id: fakeId }, updatedPlanet)
-        .resolves(updatedPlanet);
+      const findOneAndUpdateStub = sinon.stub(fakePlanet, 'findOneAndUpdate');
+      findOneAndUpdateStub.withArgs({ _id: fakeId }, updatedPlanet).resolves(updatedPlanet);
 
       const planetsController = new PlanetsController(fakePlanet);
 
-      return planetsController
-        .updatePlanet(request, response)
+      return planetsController.update(request, response)
         .then(() => {
           sinon.assert.calledWith(response.sendStatus, 200);
         });
@@ -194,25 +178,18 @@ describe("Controller: Planets", () => {
 
         const planetsController = new PlanetsController(fakePlanet);
 
-        return planetsController.updatePlanet(request, response).then(() => {
+        return planetsController.update(request, response).then(() => {
           sinon.assert.calledWith(response.send, "Error");
         });
       });
     });
   });
 
-  /**
-  * Teste responsável por deletar Planeta:
-  */
-  describe("deletePlanet() planet", () => {
+  describe('delete() planet', () => {
     it("Deve retornar status 204 quando o Planeta for excluído", () => {
       const fakeId = "a-fake-id";
-      const request = {
-        params: { id: fakeId }
-      };
-      const response = {
-        sendStatus: sinon.spy()
-      };
+      const request = { params: { id: fakeId } };
+      const response = { sendStatus: sinon.spy() };
 
       class fakePlanet {
         static remove() {}
@@ -224,40 +201,35 @@ describe("Controller: Planets", () => {
 
       const planetsController = new PlanetsController(fakePlanet);
 
-      return planetsController
-        .deletePlanet(request, response)
-        .then(() => {
-          sinon.assert.calledWith(response.sendStatus, 204);
-        });
+      return planetsController.remove(request, response).then(() => {
+        sinon.assert.calledWith(response.sendStatus, 204);
+      });
     });
 
     context("Quando ocorrer algum erro", () => {
       it("Deve retornar status 400", () => {
         const fakeId = "a-fake-id";
-        const request = {
-          params: { id: fakeId }
-        };
-        const response = {
-          send: sinon.spy(),
-          status: sinon.stub()
-        };
+        const request = { params: { id: fakeId } };
+        const response = { send: sinon.spy(), status: sinon.stub() };
+
         class fakePlanet {
           static remove() {}
         }
 
         const removeStub = sinon.stub(fakePlanet, "remove");
 
-        removeStub.withArgs({ _id: fakeId }).rejects({ message: "Error" });
+        removeStub
+          .withArgs({ _id: fakeId })
+          .rejects({ message: "Error" });
         response.status.withArgs(400).returns(response);
 
         const planetsController = new PlanetsController(fakePlanet);
 
-        return planetsController
-          .deletePlanet(request, response)
-          .then(() => {
-            sinon.assert.calledWith(response.send, "Error");
-          });
+        return planetsController.remove(request, response).then(() => {
+          sinon.assert.calledWith(response.send, "Error");
+        });
       });
     });
   });
 });
+

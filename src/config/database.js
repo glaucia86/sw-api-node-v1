@@ -7,14 +7,16 @@
  *
  */
 
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 mongoose.Promise = Promise;
 
-const mongodbUrl = process.env.MONGODB_URL || 'mongodb://localhost:27017/sw-api-node-v1';
+const mongodbUrl =
+  process.env.MONGODB_URL || "mongodb://localhost:27017/sw-api-node-v1";
 
-const connect = () => mongoose.connect(mongodbUrl, {
-  useMongoClient: true
-});
+const connect = () =>
+  mongoose.connect(mongodbUrl, {
+    useMongoClient: true
+  });
 
-export default { connect }
+export default { connect };
