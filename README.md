@@ -4,7 +4,7 @@
   <img src="https://i.imgur.com/YUNJs1N.gif"/>  
 </p>
 
-Challenge da empresa Admatic com o objetivo final de criar uma api que realize as 4 operações do HTTP: GET, DELETE, PUT &amp; POST. Utilizando das boas práticas de programação e realizando o TDD.
+Projeto com o objetivo final de criar uma api que realize as 4 operações do HTTP: GET, DELETE, PUT &amp; POST. Utilizando das boas práticas de programação e realizando o TDD.
 
 ## Recursos Utilizados no Desenvolvimento:
 
