@@ -100,7 +100,7 @@ describe("Controller: Planets", () => {
       const planetsController = new PlanetsController(fakePlanet);
 
       return planetsController
-        .create(requestWithBody, response)
+        .addNewPlanet(requestWithBody, response)
         .then(() => {
           sinon.assert.calledWith(response.send);
         });
@@ -123,7 +123,7 @@ describe("Controller: Planets", () => {
         const planetsController = new PlanetsController(fakePlanet);
 
         return planetsController
-          .create(defaultRequest, response)
+          .addNewPlanet(defaultRequest, response)
           .then(() => {
             sinon.assert.calledWith(response.status, 422);
           });
@@ -194,7 +194,7 @@ describe("Controller: Planets", () => {
 
         const planetsController = new PlanetsController(fakePlanet);
 
-        return planetsController.update(request, response).then(() => {
+        return planetsController.updatePlanet(request, response).then(() => {
           sinon.assert.calledWith(response.send, "Error");
         });
       });
@@ -224,9 +224,11 @@ describe("Controller: Planets", () => {
 
       const planetsController = new PlanetsController(fakePlanet);
 
-      return planetsController.remove(request, response).then(() => {
-        sinon.assert.calledWith(response.sendStatus, 204);
-      });
+      return planetsController
+        .deletePlanet(request, response)
+        .then(() => {
+          sinon.assert.calledWith(response.sendStatus, 204);
+        });
     });
 
     context("Quando ocorrer algum erro", () => {
@@ -250,9 +252,11 @@ describe("Controller: Planets", () => {
 
         const planetsController = new PlanetsController(fakePlanet);
 
-        return planetsController.remove(request, response).then(() => {
-          sinon.assert.calledWith(response.send, "Error");
-        });
+        return planetsController
+          .deletePlanet(request, response)
+          .then(() => {
+            sinon.assert.calledWith(response.send, "Error");
+          });
       });
     });
   });

@@ -7,7 +7,7 @@
  *
  */
 
-import Product from "../../../src/models/product";
+import Planet from "../../../src/models/planet";
 
 describe("Routes: Planets", () => {
   let request;
@@ -63,7 +63,7 @@ describe("Routes: Planets", () => {
   });
 
   describe("POST /planets", () => {
-    context("Quando fazer um Post de um Planeta", () => {
+    context("Quando adicionar um novo Planeta", () => {
       it("Deve retornar um novo Planeta com status 201", done => {
         const customId = "56cb91bdc3464f14678934ba";
         const newPlanet = Object.assign(
@@ -113,7 +113,7 @@ describe("Routes: Planets", () => {
   describe("DELETE /planets/:id", () => {
     context("Quando for excluir um Planeta", () => {
       it("Devo excluir o Planeta e retornar status 204", done => {
-        request.delete(`/products/${defaultId}`).end((err, res) => {
+        request.delete(`/planets/${defaultId}`).end((err, res) => {
           expect(res.status).to.eql(204);
           done(err);
         });

@@ -12,21 +12,38 @@ class PlanetsController {
   }
 
   get(req, res) {
-      return this.Planet.find({})
+    return this.Planet.find({})
       .then(planets => res.send(planets))
       .catch(err => res.status(400).send(err.message));
   }
 
   getPlanetsById(req, res) {
-      return Promise.resolve([
-        {
-          __v: 0,
-          _id: "59821330eacea81b34c74d64",
-          nome: "Tatooine",
-          clima: "árido",
-          terreno: "deserto"
-        }
-      ]).then(planets => res.send(planets));
+    const { params: { id } } = req;
+
+    return this.Planet.find({ _id: id })
+      .then(planets => res.send(planets))
+      .catch(err => res.status(400).send(err.message));
+  }
+
+  addNewPlanet(req, res) {
+    const planet = new this.Planet(req.body);
+
+    return planet
+      .save()
+      .then(() => res.status(201).send(planet))
+      .catch(err => res.status(422).send(err.message));
+  }
+
+  updatePlanet(req, res) {
+    return this.Planet.findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then(() => res.sendStatus(200))
+      .catch(err => res.status(422).send(err.message));
+  }
+
+  deletePlanet(req, res) {
+    return this.Planet.remove({ _id: req.params.id })
+      .then(() => res.sendStatus(204))
+      .catch(err => res.status(400).send(err.message));
   }
 }
 
