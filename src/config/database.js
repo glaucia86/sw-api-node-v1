@@ -15,8 +15,6 @@ const mongodbUrl =
   process.env.MONGODB_URL || "mongodb://localhost:27017/sw-api-node-v1";
 
 const connect = () =>
-  mongoose.connect(mongodbUrl, {
-    useMongoClient: true
-  });
+  mongoose.connect(mongodbUrl);
 
 export default { connect };
