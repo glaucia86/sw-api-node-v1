@@ -22,7 +22,7 @@ const routerHandler = new RouterHandler(router, controllers);
 routerHandler.registerRoutes();
 
 router.get("/", (req, res) =>
-  res.json({ message: "Bem Vindo(a) a API da B2WAds" })
+  res.json({ message: "Bem Vindo(a) a API Star Wars!" })
 );
 
 export default router;

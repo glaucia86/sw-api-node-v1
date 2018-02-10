@@ -43,7 +43,7 @@ export default class BaseController {
         const item = new this.model(req.body);
 
         return item.save()
-            .then(() => res.status(201).send(item))
+            .then(() => res.status(201).send(res.json({message: 'Planeta Criado com Sucesso!'}), item))
             .catch(err => res.status(422).send(err.message));
     }
 

@@ -1,7 +1,7 @@
 {
   "name": "sw-api-node-v1",
   "version": "1.0.0",
-  "description": "Repositório responsável pelo desafio Back-End do Admatic",
+  "description": "Repositório responsável pelo código CRUD para fins de estudo",
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./server.js --exec babel-node --presets babel-preset-env",
