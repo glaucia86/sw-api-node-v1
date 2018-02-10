@@ -1,3 +1,12 @@
+/**
+ *
+ * Arquivo: src/controllers/baseController.js
+ * Author: Glaucia Lemos
+ * Description: Arquivo responsável por lidar com a lógica dos HTTP's da api.
+ * Data: 10/02/2018
+ *
+ */
+
 export default class BaseController {
     constructor(apiRoot, model) {
         // rotas que serão criadas

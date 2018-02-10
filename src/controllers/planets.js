@@ -1,13 +1,14 @@
-import BaseController from "./baseController";
-
 /**
  *
  * Arquivo: src/controllers/planets.js
  * Author: Glaucia Lemos
- * Description: Arquivo responsável por lidar com a lógica dos HTTP's da api.
+ * Description: Arquivo responsável por fazer a chamada das rotas do HTTP no
+ *  arquivo 'baseController.js'.
  * Data: 06/02/2018
  *
  */
+
+import BaseController from "./baseController";
 
 class PlanetsController extends BaseController {
   constructor(Planet, apiRoot) {
