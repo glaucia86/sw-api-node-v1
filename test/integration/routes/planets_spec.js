@@ -44,7 +44,7 @@ describe('Routes: Planets', () => {
 
   describe('GET /planets', () => {
     it("Deve retornar uma lista de Planetas", done => {
-      request.get("/planets").end((err, res) => {
+      request.get("/api/planets").end((err, res) => {
         expect(res.body).to.eql([expectedPlanet]);
         done(err);
       });
@@ -52,7 +52,7 @@ describe('Routes: Planets', () => {
 
     context("Quando for encontrar um determinado Id", done => {
       it("Devo retornar 200 com um planeta", done => {
-        request.get(`/planets/${defaultId}`).end((err, res) => {
+        request.get(`/api/planets/${defaultId}`).end((err, res) => {
           expect(res.statusCode).to.eql(200);
           expect(res.body).to.eql([expectedPlanet]);
           done(err);
@@ -75,7 +75,7 @@ describe('Routes: Planets', () => {
         };
 
         request
-          .post("/planets")
+          .post("/api/planets")
           .send(newPlanet)
           .end((err, res) => {
             expect(res.statusCode).to.eql(201);
@@ -93,7 +93,7 @@ describe('Routes: Planets', () => {
         const updatedPlanet = Object.assign({}, customPlanet, defaultPlanet);
 
         request
-          .put(`/planets/${defaultId}`)
+          .put(`/api/planets/${defaultId}`)
           .send(updatedPlanet)
           .end((err, res) => {
             expect(res.status).to.eql(200);
@@ -106,7 +106,7 @@ describe('Routes: Planets', () => {
   describe('DELETE /planets/:id', () => {
     context("Quando for excluir um Planeta", () => {
       it("Devo excluir o Planeta e retornar status 204", done => {
-        request.delete(`/planets/${defaultId}`).end((err, res) => {
+        request.delete(`/api/planets/${defaultId}`).end((err, res) => {
           expect(res.status).to.eql(204);
           done(err);
         });

@@ -12,7 +12,7 @@ import BaseController from "./baseController";
 class PlanetsController extends BaseController {
   constructor(Planet, apiRoot) {
     super(apiRoot, Planet);
-  };
+  }
 }
 
 export default PlanetsController;

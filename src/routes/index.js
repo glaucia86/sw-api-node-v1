@@ -17,8 +17,8 @@ const router = express.Router();
 
 // para adicionar rotas para novos controllers, só adicionar os 
 // controllers no array abaixo
-const controllers = [new PlanetsController(Planet)];
-const routerHandler = new RouterHandler(controllers);
+const controllers = [new PlanetsController(Planet, '/planets')];
+const routerHandler = new RouterHandler(router, controllers);
 routerHandler.registerRoutes();
 
 router.get("/", (req, res) =>

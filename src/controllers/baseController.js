@@ -5,9 +5,9 @@ export default class BaseController {
         // method => HTTP Verb da rota: GET, POST, PUT, DELETE
         // action => funcão que deverá ser executada no controller
         this.routes = [
-            { route: '/', method: 'get', action: 'get' },
+            { route: '', method: 'get', action: 'get' },
             { route: '/:id', method: 'getById', action: 'get' },
-            { route: '/', method: 'create', action: 'post' },
+            { route: '', method: 'create', action: 'post' },
             { route: '/:id', method: 'update', action: 'put' },
             { route: '/:id', method: 'remove', action: 'delete' }
         ];
